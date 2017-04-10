@@ -1,0 +1,23 @@
+<h3>文章列表</h3>
+	<ul>
+		<li><a href="<{url m='kmblog' c='km' a='add'}>">增加数据create</a></li>
+		<li><a href="<{url m='kmblog' c='km' a='update'}>">修改update</a></li>
+		<li><a href="<{url m='kmblog' c='km' a='delete'}>">删除delete</a></li>
+		<li><a href="<{url m='kmblog' c='km' a='find'}>">查找findAll/find</a></li>
+		<li><a href="<{url m='kmblog' c='km' a='query'}>">SQL查询query</a></li>
+		<li><a href="<{url m='kmblog' c='km' a='execute'}>">SQL执行execute</a></li>
+	</ul>
+	<{if !empty($findall)}>
+	<table class="table">
+		<tr>
+			<th>标题</th>
+		</tr>
+		<{foreach $findall as $k => $v}>
+		<tr>
+			<td><a href="<{url m='kmblog' c='km' a='find' id=$v["article_id"]}>"><{$v["article_name"];}></a></td>
+		</tr>
+		<{/foreach}>
+	</table>
+	<{else}>
+	<p>没有结果！</p>
+	<{/if}>
