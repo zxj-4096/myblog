@@ -14,7 +14,10 @@
 		</tr>
 		<{foreach $findall as $k => $v}>
 		<tr>
-			<td><a href="<{url m='kmblog' c='km' a='find' id=$v["article_id"]}>"><{$v["article_name"];}></a></td>
+			<td>
+				<a href="<{url m='kmblog' c='km' a='find' id=$v["article_id"]}>"><{$v["article_name"]}></a><?php echo date("Y-m-d",$v["article_time"]);?>
+				<a href="<{url m='kmblog' c='km' a='update' id=$v["article_id"]}>">修改</a>
+			</td>
 		</tr>
 		<{/foreach}>
 	</table>
