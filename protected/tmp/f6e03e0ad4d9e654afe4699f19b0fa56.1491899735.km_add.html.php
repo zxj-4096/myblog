@@ -1,4 +1,4 @@
-﻿<p>标题   <input id="title" type="text"></p>
+<?php if(!class_exists("View", false)) exit("no direct access allowed");?>﻿<p>标题   <input id="title" type="text"></p>
 
   <button id="btn1"></button>
   <button id="btn2"></button>
@@ -83,5 +83,5 @@
 
 
 <p>
-<a href="<{url m='kmblog' c='km' a='index'}>">返回</a>
+<a href="<?php echo url(array('m'=>'kmblog', 'c'=>'km', 'a'=>'index', ));?>">返回</a>
 </p>

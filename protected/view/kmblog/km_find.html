@@ -1,16 +1,22 @@
-
+<div style="float:right">
+	<a href="<{url c='kmblog/km' a='update'}>">修改内容</a>
+</div>
 <{if !empty($findone)}>
 <table class="table">
-		<{foreach $findone as $k => $v}>
 		<tr>
-			<td><{$k}></td>
-			<td><{$v}></td>
+			<td>
+			<h3><{$findone["article_name"]}></h3>
+			文章类别
+			<div style="float:right"><?php echo date("Y-m-d H:i:s",$findone["article_time"]);?></div>
+			</td>
 		</tr>
-		<{/foreach}>
+		<tr>
+			<td><{$findone["article_content"]}></td>
+		</tr>
 </table>
 <{else}>
 <p>没有结果！</p>
 <{/if}>
 <p>
-	<a href="<{url c='kmblog/km' a='index'}>">返回到main/index</a>
+	<a href="<{url c='kmblog/km' a='index'}>">返回</a>
 </p>
