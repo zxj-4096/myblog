@@ -8,8 +8,7 @@ class KmController  extends BaseController {
 	function actionTest(){
 		echo "km test!";
 	}
-	private $types; 
-	// 增加数据create
+	private $types;
 	function actionAdd(){
 		$this->types = 'add';
 		list($t1, $t2) = explode(' ', microtime());
