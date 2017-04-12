@@ -1,5 +1,6 @@
 <?php
 class KmController  extends BaseController {
+	private $types;
 	function actionIndex(){
 		$art = new Article();
 		$this->findall = $art->findAll();
@@ -8,7 +9,6 @@ class KmController  extends BaseController {
 	function actionTest(){
 		echo "km test!";
 	}
-	private $types;
 	function actionAdd(){
 		$this->types = 'add';
 		list($t1, $t2) = explode(' ', microtime());
