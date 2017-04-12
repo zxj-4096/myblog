@@ -1,6 +1,6 @@
 <?php
 class KmController  extends BaseController {
-	private $types;
+	public $types;
 	function actionIndex(){
 		$art = new Article();
 		$this->findall = $art->findAll();
