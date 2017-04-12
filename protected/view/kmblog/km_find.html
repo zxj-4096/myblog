@@ -1,6 +1,27 @@
 <{if !empty($findone)}>
-<div style="float:right">
-	<a href="<{url c='kmblog/km' a='update' id=$findone["article_id"]}>">修改内容</a>
+<div style="float:right;margin-bottom:10px">
+	
+	<div class="container">
+		<div id="example" class="modal hide fade in" style="display: none; ">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>警告</h3>
+			</div>
+			<div class="modal-body">
+				<h4>确认删除这篇文章吗？</h4>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-success">删除</a>
+				<a href="#" class="btn" data-dismiss="modal">取消</a>
+			</div>
+		</div>
+		<div style="float:right">
+		
+		<a href="<{url c='kmblog/km' a='update' id=$findone["article_id"]}>" class="btn btn-primary">修改内容</a>
+		<a data-toggle="modal" href="<{url c='kmblog/km' a='update' id=$findone["article_id"]}>" class="btn btn-primary">删除</a>
+</div>
+	</div>
+
 </div>
 
 <table class="table">

@@ -5,7 +5,6 @@ class KmController  extends BaseController {
 		$art = new Article();
 		$this->findall = $art->findAll();
 	}
-
 	function actionTest(){
 		echo "km test!";
 	}

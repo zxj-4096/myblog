@@ -5,13 +5,23 @@
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="<{url c='serialport/serial' a='index'}>">SerialPort</a></li>
-                <li><a href="<{url c='video/video' a='index'}>">Video</a></li>
-				<li><a href="<{url c='video/video' a='index'}>">TEC</a></li>
-                <li><a href="<{url c='kmblog/km' a='index'}>">KM</a></li>
-                <li><a href="<{url c='picture/pic' a='index'}>">Pic</a></li>
-                <li><a href="<{url c='about/about' a='index'}>">About</a></li>
+                <li class="active"><a href="#">1.Home</a></li>
+				<li>
+					<div class="dropdown" style="width:100%;height:100%;border:none">
+						<button style="width:100%;height:100%;border:none" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+							2.TEC							
+						</button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">						
+							<li><a href="<{url c='serialport/serial' a='index'}>">SerialPort</a></li>
+							<li><a href="<{url c='video/video' a='index'}>">Video</a></li>
+						</ul>
+					</div>
+				<!--<a href="<{url c='video/video' a='index'}>">2.TEC</a>-->
+				
+				</li>
+                <li><a href="<{url c='kmblog/km' a='index'}>">3.KM</a></li>
+                <li><a href="<{url c='picture/pic' a='index'}>">4.RSS</a></li>
+                <li><a href="<{url c='about/about' a='index'}>">5.About</a></li>
               </ul>
             </div>
           </div>
