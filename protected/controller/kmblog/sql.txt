@@ -20,3 +20,12 @@ CREATE TABLE article (
  type_id tinyint(3) NOT NULL DEFAULT 1,
  article_content text NOT NULL
 );
+
+----------------------------
+--article 文章类别表
+----------------------------
+CREATE TABLE article_type (
+ type_id mediumint(8) primary key NOT NULL AUTO_INCREMENT COMMENT '文章自增ID',
+ user_id mediumint(8) NOT NULL COMMENT '该分类所属用户',
+ type_name varchar(60) NOT NULL COMMENT '分类名称'
+);

@@ -1,4 +1,4 @@
-﻿
+<?php if(!class_exists("View", false)) exit("no direct access allowed");?>﻿
 <p>标题   <input id="title" type="text" <?php if (!empty($findone)){echo "value=".$findone["article_name"];}?>></p>
 <button id="btn1"></button>
 <button id="btn2"></button>
@@ -9,7 +9,7 @@
 </div>
 <input id="printContent" type="button" value="保存">
 <p>
-<a href="<{url m='kmblog' c='km' a='index'}>">返回</a>
+<a href="<?php echo url(array('m'=>'kmblog', 'c'=>'km', 'a'=>'index', ));?>">返回</a>
 </p>
 <script type="text/javascript">
 	initEditor();
@@ -66,9 +66,9 @@
 	document.getElementById("printContent").onclick = function(e) {
 		var content = getContent("editor");
 		var title = document.getElementById("title").value;
-		var action = "<{$types}>";
+		var action = "<?php echo $types; ?>";
 		//document.write(content);		
 		//调用方法 如        
-		post("<{url m='kmblog' c='km' a='add'}>", {name:title,cont:content,typess:action});
+		post("<?php echo url(array('m'=>'kmblog', 'c'=>'km', 'a'=>'add', ));?>", {name:title,cont:content,typess:action});
 	};
 </script>

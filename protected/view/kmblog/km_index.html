@@ -10,7 +10,7 @@
 	<{foreach $findall as $k => $v}>
 	<tr>
 		<td>
-			<a href="<{url m='kmblog' c='km' a='find' id=$v["article_id"]}>"><{$v["article_name"]}></a>
+			<{$v["article_id"]}> .<a href="<{url m='kmblog' c='km' a='find' id=$v["article_id"]}>"> <{$v["article_name"]}></a>
 			<div style="float:right"><?php echo date("Y-m-d H:i:s",$v["article_time"]);?></div>				
 		</td>
 	</tr>

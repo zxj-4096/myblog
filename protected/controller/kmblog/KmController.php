@@ -8,34 +8,48 @@ class KmController  extends BaseController {
 	function actionTest(){
 		echo "km test!";
 	}
-	
+	private $types; 
 	// 增加数据create
 	function actionAdd(){
+		$this->types = 'add';
 		list($t1, $t2) = explode(' ', microtime());
 		//echo $t2  .  ceil( ($t1 * 1000) );
 		// 准备数据，一个“字段名”对应“值”的数组
 		if(!empty($_POST['name']) && !empty($_POST['cont'])){
 			$a = $_POST['name'];
 			$b = $_POST['cont'];
-			echo '保存成功!';
-			$data = array(
-				"article_name" => $a,
-				"article_time" => $t2,//.ceil( ($t1 * 1000) ),
-				"user_id" => 1,
-				"article_content" => $b
-			);
-		
-			$art = new Article();
-			$this->newid = $art->create($data);
+			echo $_POST['typess'];
+			if($_POST['typess'] == 'add'){
+				$data = array(
+					"article_name" => $a,
+					"article_time" => $t2,//.ceil( ($t1 * 1000) ),
+					"user_id" => 1,
+					"article_content" => $b
+				);
+			
+				$art = new Article();
+				$this->newid = $art->create($data);
+				echo '保存成功!';
+			}else{
+				$art = new Article();
+				$this->result = $art->update(array(
+					"article_id" => $_POST['typess'] // 条件
+				), array(
+					"article_name" => $a,
+					"article_time" => $t2,//.ceil( ($t1 * 1000) ),
+					"article_content" => $b
+				));
+				echo '修改成功!';
+			}
 		}
 	}
 	
 	// 修改update
 	function actionUpdate(){
-		if(!empty($_POST['name']) && !empty($_POST['cont'])){
-			$a = $_POST['name'];
-			$b = $_POST['cont'];
-			echo $a;
+		if(!empty($_GET['id'])){
+			$art = new Article();
+			$this->findone = $art->find(array("article_id"=>$_GET['id']));
+			$this->types = $_GET['id'];
 			$this->display("kmblog/km_add.html");
 		}
 	}
