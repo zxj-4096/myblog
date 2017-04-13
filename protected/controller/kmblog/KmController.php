@@ -54,6 +54,19 @@ class KmController  extends BaseController {
 	
 	// 删除delete
 	function actionDelete(){
+		if(!empty($_GET['id'])){
+			echo $_GET['id'];
+			
+			   $art = new Article();
+		$this->result = $art->delete(array(
+			"article_id" => $_GET['id']
+		));
+		// delete也是返回影响行数，没有匹配的结果会返回0
+		
+		$this->findall = $art->findAll();
+		$this->display("kmblog/km_index.html");
+		
+		}
 		/*
 	    $user = new User();
 		$uid = 3;

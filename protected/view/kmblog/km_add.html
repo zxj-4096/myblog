@@ -1,15 +1,17 @@
 ﻿
-<p>标题   <input id="title" type="text" value="<?php if (!empty($findone)){echo $findone["article_name"];}?>"></p>
-<button id="btn1"></button>
-<button id="btn2"></button>
-<button id="btn3"></button>
-<button id="btn4"></button>
-<div id="editor" style="width:600px;height:auto;border:1px solid #ccc;">
+<p>标题     <input id="title" type="text" value="<?php if (!empty($findone)){echo $findone["article_name"];}?>"></p>
+<button id="btn1" class="btn btn-primary"></button>
+<button id="btn2" class="btn btn-primary"></button>
+<button id="btn3" class="btn btn-primary"></button>
+<button id="btn4" class="btn btn-primary"></button>
+<p><p><p><p>
+<div id="editor" style="width:600px; height:auto!important;height:200px;min-height:200px;border:1px solid #ccc;">
 <?php if (!empty($findone)){echo $findone["article_content"];}?>
 </div>
-<input id="printContent" type="button" value="保存">
-<p>
-<a href="<{url m='kmblog' c='km' a='index'}>">返回</a>
+<p><p><p><p>
+<a id="printContent" class="btn btn-primary">保存</a>
+<p><p><p><p>
+<a href="<{url m='kmblog' c='km' a='index'}>" class="btn btn-primary">返回</a>
 </p>
 <script type="text/javascript">
 	initEditor();

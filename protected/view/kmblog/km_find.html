@@ -11,14 +11,14 @@
 				<h4>确认删除这篇文章吗？</h4>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn btn-success">删除</a>
+				<a href="<{url c='kmblog/km' a='delete' id=$findone["article_id"]}>" class="btn btn-success">删除</a>
 				<a href="#" class="btn" data-dismiss="modal">取消</a>
 			</div>
 		</div>
 		<div style="float:right">
 		
 		<a href="<{url c='kmblog/km' a='update' id=$findone["article_id"]}>" class="btn btn-primary">修改内容</a>
-		<a data-toggle="modal" href="<{url c='kmblog/km' a='update' id=$findone["article_id"]}>" class="btn btn-primary">删除</a>
+		<a data-toggle="modal" href="#example" class="btn btn-primary">删除</a>
 </div>
 	</div>
 
@@ -29,7 +29,7 @@
 			<td>
 			<h3><{$findone["article_name"]}></h3>
 			文章类别
-			<div style="float:right"><?php echo date("Y-m-d H:i:s",$findone["article_time"]);?></div>
+			<div style="float:right"><?php echo '最后修改时间：'.date("Y-m-d H:i:s",$findone["article_time"]);?></div>
 			</td>
 		</tr>
 		<tr>
@@ -40,5 +40,5 @@
 <p>没有结果！</p>
 <{/if}>
 <p>
-	<a href="<{url c='kmblog/km' a='index'}>">返回</a>
+	<a href="<{url c='kmblog/km' a='index'}>" class="btn btn-primary">返回</a>
 </p>
