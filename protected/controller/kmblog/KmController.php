@@ -16,7 +16,6 @@ class KmController  extends BaseController {
 		if(!empty($_POST['name']) && !empty($_POST['cont'])){
 			$a = $_POST['name'];
 			$b = $_POST['cont'];
-			echo $_POST['typess'];
 			if($_POST['typess'] == 'add'){
 				$data = array(
 					"article_name" => $a,
@@ -54,27 +53,25 @@ class KmController  extends BaseController {
 	
 	// 删除delete
 	function actionDelete(){
-		if(!empty($_GET['id'])){
-			echo $_GET['id'];
+		if(!empty($_GET['id'])){			
+			$art = new Article();
+			$this->result = $art->delete(array(
+				"article_id" => $_GET['id']
+			));
+			// delete也是返回影响行数，没有匹配的结果会返回0
 			
-			   $art = new Article();
-		$this->result = $art->delete(array(
-			"article_id" => $_GET['id']
-		));
-		// delete也是返回影响行数，没有匹配的结果会返回0
-		
-		$this->findall = $art->findAll();
-		$this->display("kmblog/km_index.html");
-		
+			$this->findall = $art->findAll();
+			$this->display("kmblog/km_index.html");
+			
 		}
-		/*
-	    $user = new User();
-		$uid = 3;
-		$this->result = $user->delete(array(
-			"uid" => $uid
-		));
-		$this->findall = $user->findAll();
-		$this->display("db/delete.html");*/
+			/*
+			$user = new User();
+			$uid = 3;
+			$this->result = $user->delete(array(
+				"uid" => $uid
+			));
+			$this->findall = $user->findAll();
+			$this->display("db/delete.html");*/
 	}
 	
 	// 查找findAll/find

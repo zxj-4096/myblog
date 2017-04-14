@@ -11,3 +11,5 @@ this is my myitblog website repository.
 4.10 -阿里云添加virtual 9090端口，用于本博客服务 使用github维护 熟悉linux用户权限
 4.11 -完成修改文章功能，开始完善文章类别  想加入Rss功能
        模块应该重新划分一下  1.首页 2.主要技术下包含串口视频等各类技术 3.知识管理 4.bbs/Rss 5.about
+4.12 -优化界面
+4.13 -数据层用java实现
