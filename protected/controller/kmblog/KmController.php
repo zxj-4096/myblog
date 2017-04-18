@@ -1,12 +1,18 @@
 <?php
 class KmController  extends BaseController {
 	public $types;
+	
 	function actionIndex(){
 		$art = new Article();
 		$this->findall = $art->findAll();
 	}
 	function actionTest(){
 		echo "km test!";
+	}
+	function actionLogin(){
+		$url = 'http://localhost:8090/BlogServer/ServletDemo?username=%3Bl&password=';
+		$html = file_get_contents($url); 
+		echo $html;
 	}
 	function actionAdd(){
 		$this->types = 'add';
