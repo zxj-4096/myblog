@@ -10,7 +10,7 @@ class KmController  extends BaseController {
 		echo "km test!";
 	}
 	function actionLogin(){
-		$url = 'http://localhost:8090/BlogServer/ServletDemo?username=%3Bl&password=';
+		$url = 'http://localhost:8080/BlogServer/ServletDemo?username=%3Bl&password=';
 		$html = file_get_contents($url); 
 		echo $html;
 	}
