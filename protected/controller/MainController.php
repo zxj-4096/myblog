@@ -2,8 +2,7 @@
 class MainController extends BaseController {
 	// 首页
 	function actionIndex(){
-		session_start(); 
-		session_destroy();
+		unset($_SESSION['views']);
 		$title = 'hello';
 		
 	}

@@ -14,7 +14,7 @@ class KmController  extends BaseController {
 		//session_start();
 		
 		if (!empty($_POST['id'])){
-			$url = 'http://localhost:8080/BlogServer/ServletDemo?username=%3Bl&password=';
+			$url = 'http://localhost:8090/BlogServer/ServletDemo?username=%3Bl&password=';
 			$html = file_get_contents($url); 
 			$respObject = json_decode($html);
 			if (!Empty($respObject->user->$_POST['id'])){				
