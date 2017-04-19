@@ -10,11 +10,28 @@ class KmController  extends BaseController {
 		echo "km test!";
 	}
 	function actionLogin(){
-		$url = 'http://localhost:8080/BlogServer/ServletDemo?username=%3Bl&password=';
-		$html = file_get_contents($url); 
-		echo $html;
+		//setcookie("user", "Alex Porter", time()+10);
+		//session_start();
+		
+		if (!empty($_POST['id'])){
+			$url = 'http://localhost:8080/BlogServer/ServletDemo?username=%3Bl&password=';
+			$html = file_get_contents($url); 
+			$respObject = json_decode($html);
+			if (!Empty($respObject->user->$_POST['id'])){				
+				$_SESSION['views'] = $respObject->user->$_POST['id'];
+				$art = new Article();
+				$this->findall = $art->findAll();
+				$this->display("kmblog/km_index.html");
+			}
+		}
 	}
 	function actionAdd(){
+		if(isset($_SESSION['views'])){
+			//echo '早上好'.$_SESSION['views'];
+		}else{
+			echo '请登录';
+			exit;
+		}
 		$this->types = 'add';
 		list($t1, $t2) = explode(' ', microtime());
 		//echo $t2  .  ceil( ($t1 * 1000) );
@@ -82,6 +99,13 @@ class KmController  extends BaseController {
 	
 	// 查找findAll/find
 	function actionFind(){
+		
+		if(isset($_SESSION['views'])){
+			//echo '早上好'.$_SESSION['views'];
+		}else{
+			echo '请登录';
+			exit;
+		}
 		if (!empty($_GET['id'])){
 			$art = new Article();
 			$this->findone = $art->find(array("article_id"=>$_GET['id']));

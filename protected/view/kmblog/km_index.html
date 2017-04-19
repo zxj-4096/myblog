@@ -1,7 +1,50 @@
 <a href="<{url c='main' a='index'}>" class="btn btn-primary">回首页</a>
 <a href="<{url m='kmblog' c='km' a='add'}>" class="btn btn-primary">写新文章</a>
+<!-- 按钮触发模态框 -->
+
+<?php 
+		if(isset($_SESSION['views']))
+			echo "早上好".$_SESSION['views'];
+		else
+			echo "请登录";
+?>
 <div style="float:right">
-<a href="<{url m='kmblog' c='km' a='login'}>" class="btn btn-primary">登录</a>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	登录
+</button><!--
+<a href="<{url m='kmblog' c='km' a='login'}>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">登录</a>-->
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					登录
+				</h4>
+			</div>
+			<form action="index.php?c=km&a=login&m=kmblog" method="POST">
+			<div class="modal-body">
+				用户名
+				<input name="id" type="text" >
+				密码
+				<input name="pwd" type="text" >
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<input type="submit" class="btn btn-primary" value="Submit" />
+			</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+
+<div style="float:right">
 <!--
 <input id="title" type="text" >
 <a href="<{url m='kmblog' c='km' a='find'}>" class="btn btn-primary">查找</a>

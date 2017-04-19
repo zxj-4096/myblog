@@ -3,6 +3,7 @@ class MainController extends BaseController {
 	// 首页
 	function actionIndex(){
 		$title = 'hello';
+		session_destroy();
 	}
 	
 	// 接收提交表单
