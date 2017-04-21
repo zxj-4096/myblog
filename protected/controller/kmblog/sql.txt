@@ -29,3 +29,14 @@ CREATE TABLE article_type (
  user_id mediumint(8) NOT NULL COMMENT '该分类所属用户',
  type_name varchar(60) NOT NULL COMMENT '分类名称'
 );
+
+--任务表
+
+CREATE TABLE task (
+ task_id mediumint(5) primary key NOT NULL AUTO_INCREMENT,
+ task_title varchar(128) NOT NULL,
+ task_content text NOT NULL,
+ task_result text NOT NULL,
+ task_status varchar(128) NOT NULL,
+ task_user varchar(128) NOT NULL
+);
